@@ -1,0 +1,149 @@
+<mvc:View
+		height="100%"
+		controllerName="sap.m.sample.WizardBranching.C"
+		xmlns:layout="sap.ui.layout"
+		xmlns:form="sap.ui.layout.form"
+		xmlns:core="sap.ui.core"
+		xmlns:u="sap.ui.unified"
+		xmlns:mvc="sap.ui.core.mvc"
+		xmlns="sap.m">
+	<NavContainer id="wizardNavContainer">
+		<pages>
+			<Page
+					id="wizardContentPage"
+					showHeader="false">
+				<content>
+					<Wizard id="ShoppingCartWizard"
+							complete="completedHandler"
+							enableBranching="true">
+						<WizardStep
+								id="ContentsStep"
+								nextStep="PaymentTypeStep"
+								title="Infrastructure"
+								icon="sap-icon://factory">
+							<Text class="sapUiSmallMarginBottom"
+								  text="Hi. 
+								  We are here to help you in your IoT Journey. And for that, we would like to ask you a few questions. The first one is related to the current infrastructure of your site. With the sites/machinery in your mind, do you think that:"/>
+							<HBox
+									alignItems="Center"
+									justifyContent="Center"
+									width="100%">
+								<SegmentedButton select="setInfra" id="infraSelection" selectedKey="{/selectedInfra}">
+									<items>
+										<SegmentedButtonItem key="WiFi" icon="sap-icon://world" text="Wi-Fi across all sites" tooltip="Wi-Fi across all sites"/>
+										<SegmentedButtonItem key="3G" icon="sap-icon://feed" text="Wi-Fi in most sites, 3G in remote locations"  tooltip="Wi-Fi in most sites, 3G in remote locations"/>
+										<SegmentedButtonItem key="No" icon="sap-icon://cancel-share" text="No connections avaiable on site" tooltip="No connections avaiable on site"/>
+										<SegmentedButtonItem key="Cash" icon="sap-icon://payment-approval" text="We plan to invest as part of the project" tooltip="We plan to invest as part of the project"/>
+									</items>
+								</SegmentedButton>
+							</HBox>
+						</WizardStep>
+						<WizardStep
+								id="PaymentTypeStep"
+								title="Sensor Information"
+								nextStep="CreditCardStep"
+								icon="sap-icon://temperature">
+							<Text class="sapUiSmallMarginBottom"
+								  text="Great, Thanks! Now, talking about the sensors. From your understanding, the sensors that you want to read are:"/>
+							<HBox
+									alignItems="Center"
+									justifyContent="Center"
+									width="100%">
+								<SegmentedButton select="setSensor" id="sensorSelection" selectedKey="{/selectedSensor}">
+									<items>
+										<SegmentedButtonItem key="Analogue" icon="sap-icon://electrocardiogram" text="Analogue"  tooltip="OT Machinery usually have Analogue sensors, which is great! Wonderful precision!" />
+										<SegmentedButtonItem key="Digital" icon="sap-icon://electronic-medical-record" text="Digital" tooltip="Wonderful! Easy to stream and connect"/>
+										<SegmentedButtonItem key="Grid" icon="sap-icon://provision" text="SmartGrid" tooltip="Great! One step ahead."/>
+										<SegmentedButtonItem key="NoSensor" icon="sap-icon://cancel-share" text="No sensors in place" tooltip="If there's no sensor in place, we can consider it as a GreenField implementation. Which is very good, as you can draw a full strategy!" />
+									</items>
+								</SegmentedButton>
+							</HBox>
+						</WizardStep>
+						<WizardStep
+								id="CreditCardStep"
+								title="Cloud Partner"
+								nextStep="BillingStep"
+								icon="sap-icon://cloud">
+							<Text class="sapUiSmallMarginBottom"
+								text="Perfect. Now, regarding existing partnerships. Do you use (or would consider the use) any this Cloud vendors?"/>
+							<HBox
+									alignItems="Center"
+									justifyContent="Center"
+									width="100%">
+								<SegmentedButton select="setCloud" id="cloudSelection" selectedKey="{/selectedCloud}">
+									<items>
+										<SegmentedButtonItem key="SAP" icon="sap-icon://sap-logo-shape" text="SAP Cloud" />
+										<SegmentedButtonItem key="AWS" icon="sap-icon://cloud" text="AWS"/>
+										<SegmentedButtonItem key="Azure" icon="sap-icon://cloud" text="Azure"/>
+										<SegmentedButtonItem key="NoCloud" icon="sap-icon://cancel-share" text="Don't want to use Cloud" tooltip="Do not want to use Cloud" />
+										<SegmentedButtonItem key="NoCloud2" icon="sap-icon://sys-help-2" text="Not an specific partner, but ok with Cloud" tooltip="Not an specific partner, but ok with Cloud." />
+									</items>
+								</SegmentedButton>
+							</HBox>
+						</WizardStep>
+						<WizardStep
+								id="BillingStep"
+								title="Big Data"
+								nextStep="DeliveryAddressStep"
+								icon="sap-icon://database">
+							<Text class="sapUiSmallMarginBottom"
+								  text="Do your company is using any of the follow produtcs for Big Data?"/>
+							<HBox
+									alignItems="Center"
+									justifyContent="Center"
+									width="100%">
+								<SegmentedButton select="setBigData" id="bigDataSelection" selectedKey="{/selectedBigData}">
+									<items>
+										<SegmentedButtonItem key="MAPR" icon="sap-icon://Chart-Tree-Map" text="MapR" />
+										<SegmentedButtonItem key="Cloudera" icon="sap-icon://overview-chart" text="cloudera"/>
+										<SegmentedButtonItem key="Azure" icon="sap-icon://cancel-share" text="Don't use NoSQL databases." tooltip="Don't use NoSQL databases." />
+									</items>
+								</SegmentedButton>
+							</HBox>
+						</WizardStep>
+						<WizardStep
+								id="DeliveryAddressStep"
+								title="User Experience"
+								nextStep="DeliveryTypeStep"
+								icon="sap-icon://employee">
+							<Text class="sapUiSmallMarginBottom"
+								  text="Great. Now, regarding the UX: Which one of the follow options better define the desired approach?"/>
+							<HBox
+									alignItems="Center"
+									justifyContent="Center"
+									width="100%">
+								<SegmentedButton select="setUX" id="uxSelection" selectedKey="{/selectedUX}">
+									<items>
+										<SegmentedButtonItem key="Dashboard" icon="sap-icon://chart-table-view" text="Dashboards" />
+										<SegmentedButtonItem key="SMS" icon="sap-icon://iphone" text="Alerts by SMS"/>
+										<SegmentedButtonItem key="PA" icon="sap-icon://activate" text="Predictive analysis"/>
+										<SegmentedButtonItem key="Bot" icon="sap-icon://tag-cloud-chart" text="Smart ChatBots" />
+									</items>
+								</SegmentedButton>
+							</HBox>
+						</WizardStep>
+						<WizardStep
+								id="DeliveryTypeStep"
+								title="Other Information"
+								icon="sap-icon://message-information">
+							<Text class="sapUiSmallMarginBottom"
+								  text="As a final request, would you please describe in your own words how do you see the information flow of your business?"/>
+							<Text class="sapUiSmallMarginBottom"
+								  text="(we believe all the information was gathered already, but as we are training a Bot to read natural language, your input would be much appreciated!) "/>
+							<form:SimpleForm
+									editable="true">
+								<TextArea rows="8" value="{/DeliveryTypeStep/Note}" />
+							</form:SimpleForm>
+						</WizardStep>
+					</Wizard>
+				</content>
+				<footer>
+					<OverflowToolbar>
+						<ToolbarSpacer/>
+						<Button text="Cancel" press="handleWizardCancel"/>
+					</OverflowToolbar>
+				</footer>
+			</Page>
+		</pages>
+	</NavContainer>
+</mvc:View>

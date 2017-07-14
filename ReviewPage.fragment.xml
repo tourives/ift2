@@ -1,0 +1,91 @@
+<core:FragmentDefinition
+		height="100%"
+		xmlns:layout="sap.ui.layout"
+		xmlns:form="sap.ui.layout.form"
+		xmlns:core="sap.ui.core"
+		xmlns="sap.m">
+		<Page id="wizardBranchingReviewPage" showHeader="false">
+			<content>
+				<form:SimpleForm
+						title="1. Infrastructure"
+						minWidth="1024"
+						editable="false"
+						layout="ResponsiveGridLayout">
+					<form:content>
+						<Label text="Chosen infra"/>
+						<Text text="{/selectedInfra}"/>
+						<Link press="_navBackToPaymentType" text="Edit" />
+					</form:content>
+				</form:SimpleForm>
+
+				<form:SimpleForm
+						title="2. Sensor Information"
+						minWidth="1024"
+						editable="false"
+						layout="ResponsiveGridLayout">
+					<form:content>
+						<Label text="Chosen Sensors"/>
+						<Text text="{/selectedInfra}"/>
+						<Link press="_navBackToPaymentType" text="Edit" />
+					</form:content>
+				</form:SimpleForm>
+
+				<form:SimpleForm
+						title="3. Cloud Partner"
+						minWidth="1024"
+						editable="false"
+						layout="ResponsiveGridLayout">
+					<form:content>
+						<Label text="Chosen Sensors"/>
+						<Text text="{/selectedInfra}"/>
+						<Link press="_navBackToPaymentType" text="Edit" />
+					</form:content>
+				</form:SimpleForm>
+
+				<form:SimpleForm
+						title="4. Big Data"
+						minWidth="1024"
+						editable="false"
+						layout="ResponsiveGridLayout">
+					<form:content>
+						<Label text="Chosen Sensors"/>
+						<Text text="{/selectedInfra}"/>
+						<Link press="_navBackToPaymentType" text="Edit" />
+					</form:content>
+				</form:SimpleForm>
+
+				<form:SimpleForm
+						title="5. User Experience"
+						minWidth="1024"
+						editable="false"
+						layout="ResponsiveGridLayout">
+					<form:content>
+						<Label text="Chosen Sensors"/>
+						<Text text="{/selectedInfra}"/>
+						<Link press="_navBackToPaymentType" text="Edit" />
+					</form:content>
+				</form:SimpleForm>
+
+				<form:SimpleForm
+						title="6. Other Information"
+						minWidth="1024"
+						editable="false"
+						layout="ResponsiveGridLayout">
+					<form:content>
+						<Label text="Chosen Sensors"/>
+						<Text text="{/selectedInfra}"/>
+						<Link press="_navBackToPaymentType" text="Edit" />
+					</form:content>
+				</form:SimpleForm>
+
+			</content>
+			<footer>
+				<Bar>
+					<contentRight>
+						<Button text="Submit" press="handleWizardSubmit"></Button>
+						<Button text="Cancel" press="handleWizardCancel"></Button>
+					</contentRight>
+				</Bar>
+			</footer>
+		</Page>
+</core:FragmentDefinition>
